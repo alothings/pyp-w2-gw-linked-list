@@ -89,7 +89,12 @@ class LinkedList(AbstractLinkedList):
         return len(self)
 
     def pop(self, index=None):
-        if index > len(self)-1:     # if index larger than size
+        
+        if index is None:
+            index = self.count() - 1
+            print(index)
+
+        if index > self.__len__() -1:     # if index larger than size
             raise IndexError
         
         if self.start is None:      # if empty list
@@ -104,10 +109,6 @@ class LinkedList(AbstractLinkedList):
         iterNode = self.start.next
         temp = self.start
         counter = 0
-        
-        if index is None:
-            index = self.count() 
-            print(index)
         
         if index == 0:
             temp = self.start
