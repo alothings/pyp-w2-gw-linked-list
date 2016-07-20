@@ -37,7 +37,7 @@ class LinkedList(AbstractLinkedList):
         self.iterNode = self.start
         return self
 
-    def next(self):
+    def __next__(self):
         if self.iterNode == None:
             raise StopIteration()
         value = self.iterNode.elem
@@ -92,7 +92,6 @@ class LinkedList(AbstractLinkedList):
             self.end = None
             return temp
             
-        
         iterNode = self.start.next
         temp = self.start
         counter = 0
@@ -124,23 +123,3 @@ class LinkedList(AbstractLinkedList):
         self.count()
         print(self.__str__())
         return iterNode.elem
-
-# [10]
-
-# iterNode = None
-# temp = 10
-
-#[1, 3, 5, 7, 9]
-
-
-# iterNode = 5
-# temp = 3
-# counter = 2
-
-# [1, 3]
-# [1, 3, 7, 9]
-
-# temp --> iterNode.next
-# 3 --> 7
-
-# #pop(2)
