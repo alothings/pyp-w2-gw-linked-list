@@ -33,11 +33,20 @@ class LinkedList(AbstractLinkedList):
             iterNode = iterNode.next
         return count
 
+# http://stackoverflow.com/questions/2180578/python-why-cant-i-iterate-over-a-list-is-my-exception-class-borked
     def __iter__(self):
         self.iterNode = self.start
+        # return iter(self)
         return self
 
     def __next__(self):
+        if self.iterNode == None:
+            raise StopIteration()
+        value = self.iterNode.elem
+        self.iterNode = self.iterNode.next
+        return value
+        
+    def next(self):
         if self.iterNode == None:
             raise StopIteration()
         value = self.iterNode.elem
